@@ -1,5 +1,5 @@
 // Keep the API URL here if the FastAPI server moves to another address.
-const API_BASE_URL = 'http://127.0.0.1:8000';
+const API_BASE_URL = 'https://mindwell-mental-health-predictor.onrender.com';
 const form = document.querySelector('#prediction-form');
 const submitButton = document.querySelector('#submit-button');
 const errorMessage = document.querySelector('#error-message');
