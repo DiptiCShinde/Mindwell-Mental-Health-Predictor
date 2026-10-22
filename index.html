@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7ff">
+  <title>Mindwell — Mental Health Score</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Mindwell home"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 17h5l3-8 5 15 3-9h6"/></svg></span><span>mindwell<span class="brand-dot">.</span></span></a>
+    <div class="top-note"><span class="pulse"></span> Your wellbeing, in focus</div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-line"></span> A little check-in with yourself</div>
+      <h1>Understand your<br><span>wellbeing.</span></h1>
+      <p class="hero-copy">A thoughtful snapshot of how your daily habits and student life may shape your mental wellbeing.</p>
+      <div class="hero-meta"><span class="meta-icon">✦</span> About 2 minutes <span class="meta-sep">·</span> Private by design</div>
+    </section>
+
+    <div class="layout">
+      <form id="prediction-form" class="form-card">
+        <div class="form-heading"><div><span class="section-kicker">YOUR CHECK-IN</span><h2>Tell us a little about you</h2><p>Answer based on a typical day or week.</p></div><span class="step-count">01 <i>/ 01</i></span></div>
+        <div class="form-section"><div class="section-title"><span class="section-number">01</span><h3>About you</h3></div>
+          <div class="fields two-col">
+            <label class="field"><span>Age</span><input name="age" type="number" min="10" max="100" value="21" required><small>Between 10 and 100</small></label>
+            <label class="field"><span>Gender</span><select name="gender" required><option>Female</option><option>Male</option></select></label>
+            <label class="field"><span>Country</span><select name="country" required><option>India</option><option>USA</option><option>Canada</option><option>Australia</option><option>UK</option><option>Germany</option><option>Mexico</option><option>Turkey</option><option>France</option><option>Other</option></select></label>
+            <label class="field"><span>Academic level</span><select name="academic_level" required><option>Undergraduate</option><option>Graduate</option><option>High School</option></select></label>
+          </div>
+        </div>
+        <div class="form-section"><div class="section-title"><span class="section-number">02</span><h3>Your digital habits</h3></div>
+          <div class="fields two-col">
+            <label class="field"><span>Most-used platform</span><select name="most_used_platform" required><option>Instagram</option><option>YouTube</option><option>WhatsApp</option><option>Facebook</option><option>LinkedIn</option><option>Snapchat</option><option>Twitter</option><option>TikTok</option><option>LINE</option><option>KakaoTalk</option><option>VKontakte</option><option>WeChat</option></select></label>
+            <label class="field"><span>Main reason you use it</span><select name="purpose_of_use" required><option>Networking</option><option>Education</option><option>Entertainment</option><option>News</option></select></label>
+            <label class="field"><span>Daily social media use</span><span class="input-suffix"><input name="avg_daily_usage_hours" type="number" min="0" max="24" step="0.1" value="3.5" required><i>hrs / day</i></span></label>
+            <label class="field"><span>How often do you unlock your phone?</span><span class="input-suffix"><input name="daily_unlocks" type="number" min="0" step="1" value="45" required><i>times / day</i></span></label>
+          </div>
+        </div>
+        <div class="form-section"><div class="section-title"><span class="section-number">03</span><h3>Your daily rhythm</h3></div>
+          <div class="fields two-col">
+            <label class="field"><span>Study time</span><span class="input-suffix"><input name="study_hours" type="number" min="0" max="24" step="0.1" value="5" required><i>hrs / day</i></span></label>
+            <label class="field"><span>Physical activity</span><span class="input-suffix"><input name="physical_activity_hours" type="number" min="0" max="24" step="0.1" value="1" required><i>hrs / day</i></span></label>
+            <label class="field"><span>Sleep on an average night</span><span class="input-suffix"><input name="sleep_hours_per_night" type="number" min="0" max="24" step="0.1" value="7" required><i>hrs / night</i></span></label>
+            <label class="field"><span>How would you describe your stress?</span><select name="stress_level" required><option>Low</option><option selected>Medium</option><option>High</option><option>Very High</option></select></label>
+          </div>
+        </div>
+        <div class="submit-row"><p><span class="lock-icon">⌑</span> Your answers are used to generate this estimate.</p><button id="submit-button" type="submit"><span>Get my estimate</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5"/></svg></button></div>
+        <div id="error-message" class="error-message" role="alert" hidden></div>
+      </form>
+      <aside class="side-column">
+        <div class="result-card" id="result-card" aria-live="polite">
+          <div class="result-top"><span class="result-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 17h5l3-8 5 15 3-9h6"/></svg></span><span class="result-label">YOUR WELLBEING SNAPSHOT</span></div>
+          <div id="result-placeholder"><div class="result-dash">—</div><p>Your estimate will appear here</p><span class="result-hint">Complete the check-in to see your score.</span></div>
+          <div id="result-content" hidden><div class="score-line"><strong id="score-value">0.00</strong><span class="score-unit">/ 10</span></div><div class="score-track"><span id="score-fill"></span></div><div class="score-ends"><span>Needs attention</span><span>Doing well</span></div><p id="score-message" class="score-message"></p></div>
+          <div id="connection-status" class="connection-status"><span class="status-dot"></span><span>Connecting to prediction service…</span></div>
+        </div>
+        <div class="note-card"><span class="note-sparkle">✳</span><div><h3>A gentle reminder</h3><p>This score is a model estimate for reflection. It isn’t a diagnosis or a substitute for support from a qualified professional.</p></div></div>
+        <div class="privacy-note"><span>♡</span> There are no right or wrong answers. Just yours.</div>
+      </aside>
+    </div>
+  </main>
+  <footer><a class="brand footer-brand" href="#top"><span>mindwell<span class="brand-dot">.</span></span></a><span>Made for a more mindful everyday.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
