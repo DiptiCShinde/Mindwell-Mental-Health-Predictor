@@ -2,6 +2,8 @@
 
 Mindwell is a student project that estimates a mental health score from information about study, sleep, physical activity, stress, and social media use. It includes a web form and a Python API powered by a trained machine learning model.
 
+🔗 **Live Demo:** [https://mindwell-mental-health-predictor-1.onrender.com/](https://mindwell-mental-health-predictor-1.onrender.com/)
+
 > **Please note:** This project is for learning and self-reflection. Its score is a model estimate, not a diagnosis or a replacement for professional support.
 
 ## Features
