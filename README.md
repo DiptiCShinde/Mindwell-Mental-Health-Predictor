@@ -82,6 +82,3 @@ The notebook trains a Linear Regression model using a 70/30 train-test split. It
 
 The model reflects the data it was trained on and may not represent everyone’s circumstances. Its predictions should not be used to make clinical or treatment decisions. If you are concerned about your mental health, consider speaking with a qualified professional or someone you trust.
 
-## License
-
-No license is currently included. Add one if you want to specify how others may use or modify this project.
